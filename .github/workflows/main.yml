@@ -1,0 +1,19 @@
+name: Security Analysis
+
+on: [push, pull_request]
+
+jobs:
+  security_checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 1 - Checkout code
+        uses: # action for checking out code
+
+      - name: Step 2 - Run CodeQL Analysis
+        uses: # action to initialise codeql analysis
+        with:
+          languages: # what language are we scanning
+
+      - name: Step 3 - Perform CodeQL Analysis
+        uses: # action to analyse codebase
