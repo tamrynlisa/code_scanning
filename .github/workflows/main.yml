@@ -8,12 +8,12 @@ jobs:
 
     steps:
       - name: Step 1 - Checkout code
-        uses: # action for checking out code
+        uses: actions/checkout@v4
 
       - name: Step 2 - Run CodeQL Analysis
-        uses: # action to initialise codeql analysis
+        uses: github/codeql-action/init@v3
         with:
-          languages: # what language are we scanning
+          languages: 'python'
 
       - name: Step 3 - Perform CodeQL Analysis
-        uses: # action to analyse codebase
+        uses: github/codeql-action/analyze@v3
