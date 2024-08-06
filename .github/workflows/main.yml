@@ -5,6 +5,10 @@ on: [push, pull_request]
 jobs:
   security_checks:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'python' ]
 
     steps:
       - name: Step 1 - Checkout code
@@ -13,7 +17,7 @@ jobs:
       - name: Step 2 - Run CodeQL Analysis
         uses: github/codeql-action/init@v3
         with:
-          languages: 'python'
+          languages: ${{ matrix.language }}
 
       - name: Step 3 - Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
