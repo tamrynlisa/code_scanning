@@ -1,20 +1,20 @@
-name: "CodeQL"
+name: "CodeQL Security Analysis"
 
 on: [push, pull_request]
 
 jobs:
   analyze:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout repository
+    - name: Step 1 - Checkout code
       uses: actions/checkout@v4
 
     # Initializes the CodeQL tools for scanning.
-    - name: Initialize CodeQL
+    - name: Step 2 - Run CodeQL Analysis
       uses: github/codeql-action/init@v3
       with:
         languages: python
 
-    - name: Perform CodeQL Analysis
+    - name: Step 3 - Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
-
